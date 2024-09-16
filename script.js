@@ -1,28 +1,53 @@
-let computerChoice = 0;
 function getComputerChoice() {
-
-    computerChoice = Math.floor(Math.random() * 3);
-
+    let computerChoice = Math.floor(Math.random() * 3);
     switch (computerChoice) {
         case 0:
-            computerChoice = "Rock";
+            computerChoice = "rock";
             break;
         case 1:
-            computerChoice = "Paper";
+            computerChoice = "paper";
             break;
         case 2: 
-            computerChoice = "Scissors"
+            computerChoice = "scissors"
             break;   
+    }
+    return computerChoice;
+}
+
+function getHumanChoice() {
+    let humanChoice = prompt("Choose: Rock | Paper | Scissors");
+    return humanChoice.toLowerCase();
+}
+
+let humanScore = 0;
+let computerScore = 0;
+
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice === computerChoice) {
+        console.log("Tie!");
+    }
+    else if (humanChoice === "rock" && computerChoice === "scissors") {
+        console.log(`You win, ${humanChoice} beats ${computerChoice}!`);
+        humanScore++;
+    }
+    else if (humanChoice === "scissors" && computerChoice === "paper") {
+        console.log(`You win, ${humanChoice} beats ${computerChoice}!`);
+        humanScore++;
+    }
+    else if (humanChoice === "paper" && computerChoice === "rock") {
+        console.log(`You win, ${humanChoice} beats ${computerChoice}!`);
+        humanScore++;
+    }
+    else {
+        console.log(`You lose, ${computerChoice} beats ${humanChoice}!`);
+        computerScore++;
     }
 }
 
-let humanChoice = "";
-function getHumanChoice () {
-    return humanChoice = prompt("Choose: Rock | Paper | Scissors");
-}
+// rock beats scissors, scissors beats paper, paper beats rock 
 
-humanChoice = getHumanChoice();
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
 
-// Prompt the user for their choice
-// Go through the logic --> 
-// if 
+
+playRound(humanSelection, computerSelection); 
