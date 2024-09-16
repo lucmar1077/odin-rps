@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
     switch (computerChoice) {
@@ -19,9 +22,6 @@ function getHumanChoice() {
     return humanChoice.toLowerCase();
 }
 
-let humanScore = 0;
-let computerScore = 0;
-
 function playRound(humanChoice, computerChoice) {
 
     const winConditions = {
@@ -41,7 +41,19 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
+    if (humanScore === computerScore) {
+        console.log(`You tied!`);
+    } else if (humanScore > computerScore) {
+        console.log(`You won the game! The final score was ${humanScore}-${computerScore}.`);
+    } else {
+        console.log(`You lost the game! :( The final score was ${humanScore}-${computerScore}.`);
+    }
+}
 
-playRound(humanSelection, computerSelection); 
+playGame();
