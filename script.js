@@ -18,8 +18,10 @@ function getComputerChoice() {
 
 let humanChoice = "";
 function getHumanChoice () {
-    humanChoice = prompt("Choose: Rock | Paper | Scissors ");
+    return humanChoice = prompt("Choose: Rock | Paper | Scissors");
 }
+
+humanChoice = getHumanChoice();
 
 // Prompt the user for their choice
 // Go through the logic --> 
