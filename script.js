@@ -16,6 +16,11 @@ function getComputerChoice() {
     }
 }
 
+let humanChoice = "";
+function getHumanChoice () {
+    humanChoice = prompt("Choose: Rock | Paper | Scissors ");
+}
+
 // Prompt the user for their choice
 // Go through the logic --> 
 // if 
